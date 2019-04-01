@@ -8,11 +8,11 @@ az group create --name $groupname --location westeurope
 az container create \
     --resource-group $groupname \
     --name $NAME \
-    --image uneidel.azurecr.io/cdsmeeting:1.0 \
+    --image uneidel.azurecr.io/cdsmeeting:1.5 \
     --restart-policy OnFailure \
     --registry-login-server $ACR_LOGIN_SERVER \
     --registry-username uneidel \
-    ----registry-password $ACR_LOGIN_PW
+    --registry-password $ACR_LOGIN_PW \
     --command-line "code-server --allow-http --no-auth"
 
 az group delete --name $groupname --yes
